@@ -7,8 +7,8 @@ app = Bottle()
 def hello():
     return "<h1>Legere!<h1>"
 
-@app.route('/static/<filename>')
-def server_static(filename):
-    return static_file(filename, root='static/')
+@app.route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='static/')
 
 run(app, host='localhost', port=8080)
